@@ -26,17 +26,27 @@
 
 	<script>
 
-		var words = ["fun", "exciting", "will not be giving up", "being helpful", "being open", "is applying what he learned at CodingDojo!"],
+		let words = ["fun", "exciting", "not giving up", "being helpful", "open for suggestions", "applying, what he's learning at CodingDojo!"],
 			el = document.getElementById('magic'),
 			word_counter = 0,
 			character_counter = 0;
 
-		function updateText()
-		{
-			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
+		function updateText() {
 
-			if(character_counter == words[word_counter].length)
-			{
+			let movingCursor = words[word_counter][character_counter];
+
+			if (movingCursor === " ") {
+
+				el.innerHTML += "&nbsp;";
+
+			}
+			else {
+
+				el.innerHTML = el.innerHTML + movingCursor;
+
+			}
+
+			if(character_counter == words[word_counter].length) {
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
 				el.innerHTML = '';  //set the html to be blank
@@ -45,9 +55,14 @@
 				if(word_counter == words.length)
 					word_counter = 0;
 			}
+			else {
+
+				character_counter++;
+
+			}
 		}
 
-		setInterval(updateText,300);
+		setInterval(updateText, 410);
 
 	</script>
 
